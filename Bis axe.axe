@@ -1,0 +1,295 @@
+l City
+ttl Table City : City
+ttl Base: All Respondents
+*include base.qin
+fld c163:1
++ Mumbai=1
++ Nashik=2
++ New Mumbai=3
++ Pune=4
++ Thane=5
++ Mumbai+ New Mumbai+ Thane =1,3,5
++ Nashik+ Pune =2,4
+n01 No Response ;c=-
+n03
+
+l Gen
+ttl Table Gen : Gender
+ttl Base: All Respondents
+*include base.qin
+fld c164:1
++ Male=1
++ Female=2
+n01 No Response ;c=-
+n03
+
+
+l Age 
+ttl Table Age : Age Group 
+ttl Base: All Respondents
+*include base.qin
+fld c167:1
++ Less than 18=1
++ 18 - 25=2
++ 26 - 35=3
++ 36 - 45=4
++ 45 or more=5
+n01 No Response ;c=-
+n03
+
+l Edu 
+ttl Table Edu : Education of CWE
+ttl Base: All Respondents
+*include base.qin
+fld c168:2
++ Illiterate=01
++ Literate but no formal schooling=02
++ School- Up to 4th standard=03
++ School - 5th-9th standard=04
++ SSC/HSC (10th-12th)=05
++ Some college(incl.dip) but not graduate=06
++ Graduate - General [B.A., B.Sc., B.Com.]=07
++ Graduate - Professional [B.E.,M.B.B.S.,B.Tech]=08
++ Post-Graduate-General-M.A,M.Sc.,M.Com,M.Phil,Phd=09
++ Post-Graduate-General-M.E.,M.Tech,MBA,etc=10
+n01 No Response;c=-
+n03
+
+
+l Occ 
+ttl Table Occ : Occupation of Cwe
+ttl Base: All Respondents
+*include base.qin
+fld c170:2
++ Unskilled Workers=01
++ Skilled Workers=02
++ Petty Traders=03
++ Shop Owners=04
++ Businessmen/Industrialist with number of employees-None=05
++ Self employed Professional=06
++ Clerical/Salesman=07
++ Supervisory level=08
++ Officers/Executives Junior=09
++ Officers/ExecutivesMiddle/Senior=10
++ Businessmen/Industrialists with number of employees-1-9=11
++ Businessmen/Industrialists with number of employees-10+=12
++ Student=13
++ Retired=14
++ Unemployed=15
++ Housewife=16
+n01 No Response ;c=-
+n03
+
+
+l Q5
+ttl Table Q5 : Marital Status 
+ttl Base: All Respondents
+*include base.qin
+fld c172:1
++ Single=1
++ Married=2
++ Divorced/Separated=3
++ Widowed=4
++ Refused=8
+n01 No Response ;c=-
+n03
+
+l Q6 
+ttl Table Q6 : 
+ttl Base: All Respondents
+*include Q6.qin
+
+
+l Q7 
+ttl Table Q7 : MHI
+ttl Base: All Respondents
+*include base.qin
+fld c175:1
++ Up to 10,000=1
++ 10,000-50,000=2
++ 50,000-1,00,000=3
++ 1,00,000-2,00,000=4
++ More than 2,00,000=5
+n01 No Response ;c=-
+n03
+
+
+l Q8
+ttl Table Q8 : Type of biscuit like most
+ttl Base: All Respondents
+*include base.qin
+fld c176 :1
++ Plain=1
++ Salty=2
++ Sweet=3
++ Sweet & Salty=4
++ Cream=5
+n01 No Response ;c=-
+n03
+
+
+l Q9
+ttl Table Q9 : Size purchase
+ttl Base: All Respondents
+*include base.qin
+fld c177:1
++ Small=1
++ Medium=2
++ Large (Family Pack)=3
+n01 No Response ;c=-
+n03
+
+
+l Q10
+ttl Table Q10 : Spent on biscuits 
+ttl Base: All Respondents
+*include base.qin
+fld c178:1
++ Rs. 1 - 5=1
++ Rs. 51 - 100=2
++ Rs. 101 - 200=3
++ Rs. 201 - 300=4
++ Rs. 301 - 500=5
++ More than Rs. 500=6
+n01 No Response ;c=-
+n03
+
+
+l Q11
+ttl Table Q11 : Frequency of consumption 
+ttl Base: All Respondents
+*include base.qin
+fld c179:1
++ Many time in a Day=1
++ Once in a Day=2
++ Sometimes in a Week=3
++ Sometimes in a Fortnight=4
+n01 No Response ;c=-
+n03
+
+
+l Q12A
+ttl Table Q12A : TOM 
+ttl Base: All Respondents
+*include brand.qin ;col(a)=1000;att=TOm ;code=1
+
+l Q12B
+ttl Table Q12B : SPONT 
+ttl Base: All Respondents
+*include brand.qin ;col(a)=1000;att=TOm ;code=2
+
+l Q12AB
+ttl Table Q12AB : TOM+SPONT 
+ttl Base: All Respondents
+*include brand.qin ;col(a)=1000;att=TOM+SPONT ;code=12
+
+l Q12C
+ttl Table Q12C : AIDED
+ttl Base: All Respondents
+*include brand.qin ;col(a)=1000;att=AIDED ;code=3
+
+l Q12Cx
+ttl Table Q12Cx : TOTAL AWARE
+ttl Base: All Respondents
+*include brand.qin ;col(a)=1000;att=TOTAL AWARE ;code=123
+
+l Q13
+ttl Table Q13 : EVER Purchased 
+ttl Base: All Respondents
+*include brand.qin ;col(a)=1000;att=EVER ;code=4
+
+l Q14
+ttl Table Q14 : P6M purcahsed 
+ttl Base: All Respondents
+*include brand.qin ;col(a)=1000;att=P6M ;code=5
+
+l Q15
+ttl Table Q15 : P1M 
+ttl Base: All Respondents
+*include brand.qin ;col(a)=1000;att=P1M ;code=6
+
+l Q16
+ttl Table Q16 : Current
+ttl Base: All Respondents
+*include brand.qin ;col(a)=1000;att=Current ;code=7
+
+l Q17 
+ttl Table Q17 : Most Prefered
+ttl Base: All Respondents
+*include brand.qin ;col(a)=1000;att=TOm ;code=8
+
+l Q18
+ttl Table Q18 : Recommend preferd biscuit
+ttl Base: All Respondents
+*include base.qin
+n01 Unlikely      ;c=c524'1'
+n01 Neutral       ;c=c524'2'
+n01 Likely        ;c=c524'3'
+n01 Very likely   ;c=c524'4'
+n01 No Response ;c=-
+n03
+n25 ;inc=c524 ;c=c524'1/4'
+n12 mean ;dec=2
+n03
+
+
+
+l Q19
+ttl Table Q19 : Importance factor
+ttl Base: All Respondents
+*include Q19.qin;col(a)=526 ;att=Price
+*include Q19.qin;col(a)=527 ;att=Quality
+*include Q19.qin;col(a)=528 ;att=Brand Reputation
+*include Q19.qin;col(a)=529 ;att=Packaging
+*include Q19.qin;col(a)=530 ;att=Nutritional Value
+
+
+l Q20
+ttl Table Q20 : Brand Imagery by Stmt
+ttl Base: All Respondents
+*include brd.qin ;col(a)=531 ;col(b)=553 ;col(d)=896 ;att=Trustworthy Brand
+*include brd.qin ;col(a)=555 ;col(b)=577 ;col(d)=898 ;att=High quality ingredients
+*include brd.qin ;col(a)=579 ;col(b)=601 ;col(d)=900 ;att=Recommended by family and friends
+*include brd.qin ;col(a)=603 ;col(b)=625 ;col(d)=902 ;att=Choosing biscuit for special occasion
+*include brd.qin ;col(a)=627 ;col(b)=649 ;col(d)=904 ;att=Low sugar content
+*include brd.qin ;col(a)=651 ;col(b)=673 ;col(d)=906 ;att=International/Exotic varieties
+*include brd.qin ;col(a)=675 ;col(b)=697 ;col(d)=908 ;att=Biscuit with unique flavour combination
+*include brd.qin ;col(a)=699 ;col(b)=721 ;col(d)=910 ;att=Crunchy rather than soft
+*include brd.qin ;col(a)=723 ;col(b)=745 ;col(d)=912 ;att=Packing design influence purchase decision
+*include brd.qin ;col(a)=747 ;col(b)=769 ;col(d)=914 ;att=Easily available in stores
+*include brd.qin ;col(a)=771 ;col(b)=793 ;col(d)=916 ;att=Brand known for its quality
+*include brd.qin ;col(a)=795 ;col(b)=817 ;col(d)=918 ;att=Brand of reasonable price
+*include brd.qin ;col(a)=819 ;col(b)=841 ;col(d)=920 ;att=India’s finest biscuit brand
+*include brd.qin ;col(a)=843 ;col(b)=865 ;col(d)=922 ;att=Expert brands in biscuits
+
+
+l Q20X
+ttl Table Q20X : Brand Imagery by Brand 
+ttl Base: All Respondents
+*include stmt.qin ;code=01;cond=c1001'123' ;att=Parle        
+*include stmt.qin ;code=02;cond=c1002'123' ;att=Britannia    
+*include stmt.qin ;code=03;cond=c1003'123' ;att=Priyagold    
+*include stmt.qin ;code=04;cond=c1004'123' ;att=Sunfeast     
+*include stmt.qin ;code=05;cond=c1005'123' ;att=Unibic       
+*include stmt.qin ;code=06;cond=c1006'123' ;att=Cremica      
+*include stmt.qin ;code=07;cond=c1007'123' ;att=Patanjali    
+*include stmt.qin ;code=08;cond=c1008'123' ;att=Milano       
+*include stmt.qin ;code=09;cond=c1009'123' ;att=Cadbury      
+*include stmt.qin ;code=10;cond=c1010'123' ;att=Anmol        
+
+l Q21
+ttl Table Q21 : Brand Consideration
+ttl Base: All Respondents
+*include Q21.qin ;code=01;cond=c1001'123';col(a)=1201 ;att=Parle        
+*include Q21.qin ;code=02;cond=c1002'123';col(a)=1202 ;att=Britannia    
+*include Q21.qin ;code=03;cond=c1003'123';col(a)=1203 ;att=Priyagold    
+*include Q21.qin ;code=04;cond=c1004'123';col(a)=1204 ;att=Sunfeast     
+*include Q21.qin ;code=05;cond=c1005'123';col(a)=1205 ;att=Unibic       
+*include Q21.qin ;code=06;cond=c1006'123';col(a)=1206 ;att=Cremica      
+*include Q21.qin ;code=07;cond=c1007'123';col(a)=1207 ;att=Patanjali    
+*include Q21.qin ;code=08;cond=c1008'123';col(a)=1208 ;att=Milano       
+*include Q21.qin ;code=09;cond=c1009'123';col(a)=1209 ;att=Cadbury      
+*include Q21.qin ;code=10;cond=c1010'123';col(a)=1210 ;att=Anmol        
+
+
+

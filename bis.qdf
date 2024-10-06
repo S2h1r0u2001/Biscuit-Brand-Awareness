@@ -1,0 +1,16 @@
+/*******************Zilla.qdf ********************************
+struct;read=0;ser=c(148,162);reclen=22000
+
+*include bis.Edt
+
+a;op=1;decp=2;pagwid=10000;flush;colwid=12;paglen=120;nodsp;nopc ;dp;minbase=30;smallbase=30
+
+ttlHANSA RESEARCH GROUP - PROJECT : BISCUIT
+
+*include bis.Tab ; brk=brk1
+*include bis.Axe
+*include bis.Brk
+
+
+
+

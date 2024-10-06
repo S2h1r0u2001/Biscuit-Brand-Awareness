@@ -1,0 +1,268 @@
+/******Biscuit REDIT.qdf******
+struct;read=0;ser=c(148,162);reclen=3000
+
+ed
+
+/***include corr.qin
+r (c(48,147)u$ $)  $c48-147 Name SNBB$
+r (c(148,162)u$ $)  $c148-162 contact SNBB$
+
+r sp c163'1/5'o  	$c164 Q1 oor in (1-5)$
+
+r sp c164'12'o  	$c164 Q1 oor in (1-2)$
+
+r (c(165,166).in.(18:90))	$c165-166 Q2_age oor in (18-90)$
+r =(c165=$ $)(c166=$ $)   $c165-166 Q2_Age punched with blanks$
+
+r sp c167'1/5'o 	$c167 Q2_postcode oor in (1-5)$
+
+r = (c(165,166).lt.18)(c167'1')        $c165-166<18 then c167=1$
+r = (c(165,166).in.(18:25))(c167'2')   $c165-166=18-25 then c167=2$
+r = (c(165,166).in.(26:35))(c167'3')   $c165-166=26-35 then c167=3$
+r = (c(165,166).in.(36:45))(c167'4')   $c165-166=36-45 then c167=4$
+r = (c(165,166).gt.45)(c167'5')	      $c165-166>45 then c167=5$
+
+r (c(168,169).in.(1:10))	$c168-169 Q3 oor in (1-10)$
+r = (c168=$ $)(c169=$ $) $c168-169 Q3 punched with blanks$
+
+r (c(170,171).in.(1:16))	$c170-171 Q4 oor in (1-16)$
+r = (c170=$ $)(c171=$ $) $c170-171 Q4 punched with blanks$
+
+r sp c172'1/5'o $c172 Q5 oor in (1-5)$
+
+r (c(173,174).in.(1:10)) 	$c173-174 Q6 oor(1-10)$
+
+r sp c175'1/5'o 	$c175 Q7 oor in (1-5)$
+r sp c176'1/5'o 	$c176 Q8 oor in (1-5)$
+r sp c177'1/3'o 	$c177 Q9 oor in (1-3)$
+r sp c178'1/6'o 	$c178 Q10 oor in(1-6)$
+r sp c179'1/4'o 	$c179 Q11 oor in(1-4)$
+
+/************Grid
+clear c(1000,1100)
+r (c(180,181).in.(1:10,96))  $c180-181 Q12A-TOM oor(1-10,96)$
+if (c(180,181).in.(1:10,96)) ;emit c(1000+c(180,181))'1'
+
+if (c(148,157).in.($8830704979$)) ;count c1001
+
+if (c(180,181).in.(96))
++ r (c(182,281)u$ $) $c182-281 Q12A_oth SNBB$
++ else
++ r (c(182,281)=$ $) $c182-281 Q12A_oth SBB$
+
+t2=0
+do 282 t1=282,302,2
+          t2=t2+1
+
+          if (t1.eq.302) ;t2=97
+          r (c(t1,t1+1).in.(1:10,97,$  $))  $c282-303 Q12b oor(1-10,97,blank)$
+          r =(c(t1)=$ $)(c(t1+1)=$ $)  $c282-303 Q12b punched with blanks$
+
+          if (c(t1,t1+1).in.(1:10,97)) 
++         r (t2.eq.c(t1,t1+1))  $c282-303 Q12b SB fixed punched$
+
+       if (c(t1,t1+1)u$ $)      
++         r (c(1000+c(t1,t1+1))n'1')  $c282-303 Q12b SNBC in Q12A$
++          emit c(1000+c(t1,t1+1))'2'
+282 continue
+
+if (c(148,157).in.($8830704979$)) ;count c1001
+
+t2=0
+r (c(404,424)u$ $)     $Q12c c404-424 SNBB$
+do 404 t1=404,423,2
+          t2=t2+1
+          if (t1.eq.423) ;t2=97
+          r (c(t1,t1+1).in.(1:10,$  $))  $c404-424 Q12C oor(1-10,97)$
+          r =(c(t1)=$ $)(c(t1+1)=$ $)  $c404-424 Q12C punched with blanks$
+          if (c(t1,t1+1).in.(1:10)) ; r (t2.eq.c(t1,t1+1))  $c404-424 Q12C SB fixed punched$
+
+          if (c(t1,t1+1).in.(1:10))      
++          r (c(1000+c(t1,t1+1))n'12')  $c404-424 Q12C SNBC in Q12A$
++         emit c(1000+c(t1,t1+1))'3'
+404 continue
+
+t2=0
+do 426 t1=426,448,2
+          t2=t2+1
+          if (t1.eq.446) ;t2=96
+          r (c(t1,t1+1).in.(1:10,96,97,$  $))  $c426-449 Q13 oor(1-10,96,97)$
+          r =(c(t1)=$ $)(c(t1+1)=$ $)  $c426-449 Q13 punched with blanks$
+          if (c(t1,t1+1).in.(1:10,96,97)) ; r (t2.eq.c(t1,t1+1))  $c426-449 Q12C SB fixed punched$
+          
+          if (c(t1,t1+1).in.(1:10,96,97))      
++          r (c(1000+c(t1,t1+1))'123')  $c426-449 Q13 SBC in Q12A,B,C$
++          emit c(1000+c(t1,t1+1))'4'
+426 continue
+
+t2=0
+do 450 t1=450,472,2
+          t2=t2+1
+          if (t1.eq.470) ;t2=96
+
+          r (c(t1,t1+1).in.(1:10,96,97,$  $))  $c450-473 Q14 oor(1-10,97)$
+          r =(c(t1)=$ $)(c(t1+1)=$ $)  $c450-473 Q14 punched with blanks$
+          if (c(t1,t1+1).in.(1:10,96,97)) ; r (t2.eq.c(t1,t1+1))  $c450-473 Q12C SB fixed punched$
+
+          if (c(t1,t1+1).in.(1:10,96,97))      
++          r (c(1000+c(t1,t1+1))'4')  $c450-473 Q14 SBC in Q13$
++          emit c(1000+c(t1,t1+1))'5'
+450 continue
+451 continue
+
+t2=0
+do 474 t1=474,496,2
+          t2=t2+1
+          if (t1.eq.494) ;t2=96
+          
+          r (c(t1,t1+1).in.(1:10,97,96,$  $))  $c474-497 Q15 oor(1-10,97)$
+          r =(c(t1)=$ $)(c(t1+1)=$ $)  $c474-497 Q15 punched with blanks$
+          if (c(t1,t1+1).in.(1:10,96,97)) ; r (t2.eq.c(t1,t1+1))  $c474-497 Q15C SB fixed punched$
+
+          if (c(t1,t1+1).in.(1:10,96,97))      
++          r (c(1000+c(t1,t1+1))'5')  $c474-497 Q15 SBC in Q13$
++          emit c(1000+c(t1,t1+1))'6'
+474 continue
+475 continue
+call rep(474,496,2,2)
+r (t99.eq.0)  $c474-497 Q15 codes repeated$
+
+t2=0
+do 498 t1=498,520,2
+           t2=t2+1
+           if (t1.eq.518) ;t2=96 
+           r (c(t1,t1+1).in.(1:10,96,97,$  $))  $c498-521 Q16 oor(1-10,97)$
+           r =(c(t1)=$ $)(c(t1+1)=$ $)  $c498-521 Q16 punched with blanks$
+           if (c(t1,t1+1).in.(1:10,96,97)) ; r (t2.eq.c(t1,t1+1))  $c498-521 Q15C SB fixed punched$
+
+          if (c(t1,t1+1).in.(1:10,96,97))      
++         r (c(1000+c(t1,t1+1))'6')  $c498-521 Q16 SBC in Q13$
++         emit c(1000+c(t1,t1+1))'7'
+498 continue
+499 continue
+call rep(498,520,2,2)
+r (t99.eq.0)  $c498-521 Q16 codes repeated$
+
+r (c(522,523).in.(1:10,96,97)) $c522-523 Q17 oor(1-10/96/97)$
+if (c(522,523)u$ $) 
++ r (c(1000+c(522,523))'4567') $c522-523 Q17 SBC in Q13-Q16$
+
+r sp c524'1/5'o  $c524 Q18 oor(1-5)$
+/**r sp c525'1/5'o  $c525 Q18 oor(1-5)$
+
+r sp c526'1/5'o  $c526 Q19_1 oor(1-5)$
+r sp c527'1/5'o  $c527 Q19_2 oor(1-5)$
+r sp c528'1/5'o  $c528 Q19_3 oor(1-5)$
+r sp c529'1/5'o  $c529 Q19_4 oor(1-5)$
+r sp c530'1/5'o  $c530 Q19_5 oor(1-5)$
+
+clear c(2000,2100)
+
+r (c(531,866)u$ $)   $Q20 c531-866 SNBB$
+t7=896-2
+do 531 t1=531,843,24
+          t7=t7+2 
+       r (c(t1,t1+23)u$ $.or.c(t7,t7+1)u$ $) $c531-554/.../843-866 Q20 SNBB$
+
+       if (c(t1,t1+23)=$ $.and.c(t7,t7+1)=$ $)
++      write $Q20 SNBB$
++      call qfprnt(0,$%30b c%3i-%3i Q20 SNBB$,t1,t1+23,t7,t7+1)
+
+       r (c(t1,t1+23)u$ $.or.c(t7,t7+1)u$ $)   $c531-554/../843-866 Q20 SNBB$
+
+       clear c(2000,2100)
+       if (c(t7,t7+1).in.(99))
++      r (c(t1,t1+22)=$ $) $c533-554/../845-866 SBB if c531-532/../843-844=99$ 
++      goto 534
+
+              t3=0
+       do 533 t2=t1,t1+22,2
+              t3=t3+1            
+
+              r (c(t2,t2+1).in.(1:10,$  $)) $c531-554/../843-866 Q20 oor(1-10/Blank)$
+              r =(c(t2)=$ $)(c(t2+1)=$ $) $c531-554/../843-866 Q20 punched with blanks$
+
+              if (c(t2,t2+1)u$ $) ;r (t3.eq.c(t2,t2+1))  $c531-554/.../843-866 Q20SB fixed punched$ 
+
+              if (c(t2,t2+1)u$ $)
++             r (c(1000+c(t2,t2+1))'123')       $c531-554/../843-866 Q20 SB Aware in Q12-Q12B$          
+
+       	     if (c(t2,t2+1).in.(96,97,99))  ;lista c(t2,t2+1)
+       533 continue
+       534 continue
+531 continue
+532 continue
+
+/******* Q21 ****.
+clear c(1200,1250)
+r (c(867,868).in.(1:10))  $c867-868 Q21 oor(1-10)$
+
+if (c(867,868)u$ $)
++ r (c(1000+c(867,868))'123')  $c867-868 Q21 SBC in Aware Grid$
++ emit c(1200+c(867,868))'1' 
+
+t4=1001-1
+t5=1201-1
+do 869 t1=869,878,1
+        t4=t4+1
+        t5=t5+1
+        if (c(t4)'123'.and.c(t5)n'1')
++       r sp c(t1)'2/4'o  $c869-878 oor(2-4)$           
++       else
++       r b c(t1)  $c869-878 SBB$
+
+869 continue
+
+/**filedef shg.dat data
+/**write shg.dat c(1,925)
+
+/************* SUBROUTINE ***********
+return
+subroutine rep(sc,ec,jp,wd)
+int sc  
+int ec  
+int jp
+int wd  
+t99=0
+do 1 t1=sc,ec,jp
+     if (c(t1,t1+jp-1)=$ $) goto 1
+     do 2 t2=t1+jp,ec,jp
+          if (c(t2,t2+jp-1)=$ $) goto 2
+          if (c(t1,t1+wd-1)=c(t2,t2+wd-1)) ;t99=1 ;return
+     2 continue
+1 continue
+return
+
+return
+subroutine rep_ad(sc,ec,jp,wd)
+int sc  
+int ec  
+int jp
+int wd  
+t97=0
+do 11 t1=sc,ec,jp
+     if (c(t1,t1+jp-1)=$ $) goto 11
+     if (c(t1,t1+jp-1).eq.197) goto 11
+     do 12 t2=t1+jp,ec,jp
+          if (c(t2,t2+jp-1)=$ $) goto 12
+          if (c(t1,t1+wd-1)=c(t2,t2+wd-1)) ;t99=1 ;return
+     12 continue
+11 continue
+return
+
+
+subroutine rep1(sc,ec)
+int sc  
+int ec                             
+t98=0
+do 3 t1=sc,ec,1
+     if (c(t1)=$ $) goto 3
+     do 4 t2=t1+1,ec,1
+          if (c(t2)=$ $) goto 4
+          if (c(t1)=c(t2)) ;t98=1 ;return
+     4 continue
+3 continue
+return
+
+end
+
